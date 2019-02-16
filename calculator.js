@@ -20,8 +20,8 @@ const plus = document.getElementById('plus');
 const decimal = document.getElementById('decimal');
 const equals = document.getElementById('equals');
 
-let arr = []; // Store user input
-let str = ''; // display user input
+let arr = []; // Store user clicks which will later be used to calculate
+let str = ''; // display user clicks used for display
 
 zero.addEventListener('click', () => {
   arr.push(0);
@@ -91,4 +91,11 @@ nine.addEventListener('click', () => {
   str = str.concat(9);
   ac.innerHTML = 'C';
   display.value = str;
+});
+
+ac.addEventListener('click', () => {
+  arr = [];
+  display.value = '';
+  str = '';
+  ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
 });
