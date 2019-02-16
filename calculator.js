@@ -102,9 +102,9 @@ ac.addEventListener('click', () => {
   ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
 });
 
-negative.addEventListener('click', () => { //needs to be fixed
+negative.addEventListener('click', () => {
   arr.push('-');
-  str = str.concat('-0');
+  str = str.concat('-');
   display.value = str;
 });
 
