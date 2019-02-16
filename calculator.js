@@ -97,7 +97,7 @@ nine.addEventListener('click', () => {
 
 ac.addEventListener('click', () => {
   arr = [];
-  display.value = '';
+  display.value = '0';
   str = '';
   ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
 });
@@ -135,6 +135,7 @@ decimal.addEventListener('click', () => {
 });
 
 equals.addEventListener('click', () => {
+  display.value = '0';
   str = '';
   display.value = calculateArray();
 });
