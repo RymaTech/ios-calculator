@@ -99,3 +99,9 @@ ac.addEventListener('click', () => {
   str = '';
   ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
 });
+
+negative.addEventListener('click', () => { //needs to be fixed
+  arr.push('-');
+  str = str.concat('-0');
+  display.value = str;
+});
