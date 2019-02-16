@@ -22,11 +22,20 @@ const equals = document.getElementById('equals');
 
 let arr = []; // Store user clicks which will later be used to calculate
 let str = ''; // display user clicks used for display
-
 let percentageArr = []; // Array to test whether user has click percentage.
 let percentStartNum = []; // percentage number user wants to work out.
 
-const calculateArray = () => eval(arr.toString().split(',').join(''));
+const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
+
+const calculateArray = () => evalOnce(arr.toString().split(',').join(''));
+
+const workoutPercent = () => {
+  if (percentageArr.length === 1) {
+    display.value = evalOnce(display.value) * percentStartNum[0];
+  } else {
+    display.value = calculateArray();
+  }
+};
 
 zero.addEventListener('click', () => {
   arr.push(0);
@@ -141,15 +150,11 @@ decimal.addEventListener('click', () => {
 
 percentage.addEventListener('click', () => { // needs to be fixed
   percentageArr.push('x');
-  let number = eval(str);
+  let number = evalOnce(str);
   display.value = number * 0.01;
 });
 
 equals.addEventListener('click', () => {
   str = '';
-  if (percentageArr.length === 1) {
-    display.value = eval(display.value) * percentStartNum[0];
-  } else {
-    display.value = calculateArray();
-  }
+  workoutPercent();
 });
