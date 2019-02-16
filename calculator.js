@@ -1,21 +1,94 @@
 /* jshint esversion: 6 */
-const display = document.getElementById('display'),
-  zero = document.getElementById('zero'),
-  one = document.getElementById('one'),
-  two = document.getElementById('two'),
-  three = document.getElementById('three'),
-  four = document.getElementById('four'),
-  five = document.getElementById('five'),
-  six = document.getElementById('six'),
-  seven = document.getElementById('seven'),
-  eight = document.getElementById('eight'),
-  nine = document.getElementById('nine'),
-  ac = document.getElementById('ac'),
-  negative = document.getElementById('negative'),
-  percentage = document.getElementById('percentage'),
-  divide = document.getElementById('divide'),
-  multiply = document.getElementById('multiply'),
-  minus = document.getElementById('minus'),
-  plus = document.getElementById('plus'),
-  decimal = document.getElementById('decimal'),
-  equals = document.getElementById('equals');
+const display = document.getElementById('display');
+const zero = document.getElementById('zero');
+const one = document.getElementById('one');
+const two = document.getElementById('two');
+const three = document.getElementById('three');
+const four = document.getElementById('four');
+const five = document.getElementById('five');
+const six = document.getElementById('six');
+const seven = document.getElementById('seven');
+const eight = document.getElementById('eight');
+const nine = document.getElementById('nine');
+const ac = document.getElementById('ac');
+const negative = document.getElementById('negative');
+const percentage = document.getElementById('percentage');
+const divide = document.getElementById('divide');
+const multiply = document.getElementById('multiply');
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+const decimal = document.getElementById('decimal');
+const equals = document.getElementById('equals');
+
+let arr = []; // Store user input
+let str = ''; // display user input
+
+zero.addEventListener('click', () => {
+  arr.push(0);
+  str = str.concat(0);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+one.addEventListener('click', () => {
+  arr.push(1);
+  str = str.concat(1);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+two.addEventListener('click', () => {
+  arr.push(2);
+  str = str.concat(2);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+three.addEventListener('click', () => {
+  arr.push(3);
+  str = str.concat(3);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+four.addEventListener('click', () => {
+  arr.push(4);
+  str = str.concat(4);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+five.addEventListener('click', () => {
+  arr.push(5);
+  str = str.concat(5);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+six.addEventListener('click', () => {
+  arr.push(6);
+  str = str.concat(6);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+seven.addEventListener('click', () => {
+  arr.push(7);
+  str = str.concat(7);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+eight.addEventListener('click', () => {
+  arr.push(8);
+  str = str.concat(8);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
+
+nine.addEventListener('click', () => {
+  arr.push(9);
+  str = str.concat(9);
+  ac.innerHTML = 'C';
+  display.value = str;
+});
