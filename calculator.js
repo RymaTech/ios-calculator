@@ -105,3 +105,8 @@ negative.addEventListener('click', () => { //needs to be fixed
   str = str.concat('-0');
   display.value = str;
 });
+
+divide.addEventListener('click', () => {
+  arr.push('/');
+  str = '';
+});
