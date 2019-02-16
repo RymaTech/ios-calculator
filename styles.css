@@ -58,28 +58,28 @@ button {
   background-color: #FF9500;
 }
 
-.divide:hover, .multiply:hover, .equals:hover, .plus:hover, .minus:hover {
+/* .divide:hover, .multiply:hover, .equals:hover, .plus:hover, .minus:hover {
   color: #FF9500;
   background-color: white;
-}
+} */
 
 .numbers, .decimal {
   background-color: #505050;
   color: white;
 }
 
-.numbers:hover {
+/* .numbers:hover {
   background-color: #6a6a6a;
-}
+} */
 
 .lightGrey {
   background-color: #D4D4D2;
   color: #1C1C1C;
 }
 
-.lightGrey:hover {
+/* .lightGrey:hover {
   background-color: #eaeaea;
-}
+} */
 
 .zero {
   background-color: #505050;
@@ -93,10 +93,10 @@ button {
   padding-left: 15%;
 }
 
-.zero:hover {
+/* .zero:hover {
   background-color: #6a6a6a;
 }
 
 .decimal:hover {
   background-color: #6a6a6a;
-}
+} */
