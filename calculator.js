@@ -115,3 +115,8 @@ multiply.addEventListener('click', () => {
   arr.push('*');
   str = '';
 });
+
+minus.addEventListener('click', () => {
+  arr.push('-');
+  str = '';
+});
