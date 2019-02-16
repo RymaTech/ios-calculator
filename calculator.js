@@ -120,3 +120,8 @@ minus.addEventListener('click', () => {
   arr.push('-');
   str = '';
 });
+
+plus.addEventListener('click', () => {
+  arr.push('+');
+  str = '';
+});
