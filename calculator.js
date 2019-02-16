@@ -125,3 +125,9 @@ plus.addEventListener('click', () => {
   arr.push('+');
   str = '';
 });
+
+decimal.addEventListener('click', () => {
+  arr.push('.');
+  str = str.concat('.');
+  display.value = str;
+});
