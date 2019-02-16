@@ -131,3 +131,5 @@ decimal.addEventListener('click', () => {
   str = str.concat('.');
   display.value = str;
 });
+
+const calculateArray = () => eval(arr.toString().split(',').join(''));
