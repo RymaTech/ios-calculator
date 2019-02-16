@@ -133,3 +133,8 @@ decimal.addEventListener('click', () => {
   str = str.concat('.');
   display.value = str;
 });
+
+equals.addEventListener('click', () => {
+  str = '';
+  display.value = calculateArray();
+});
