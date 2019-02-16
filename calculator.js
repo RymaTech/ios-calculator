@@ -23,6 +23,8 @@ const equals = document.getElementById('equals');
 let arr = []; // Store user clicks which will later be used to calculate
 let str = ''; // display user clicks used for display
 
+const calculateArray = () => eval(arr.toString().split(',').join(''));
+
 zero.addEventListener('click', () => {
   arr.push(0);
   str = str.concat(0);
@@ -131,5 +133,3 @@ decimal.addEventListener('click', () => {
   str = str.concat('.');
   display.value = str;
 });
-
-const calculateArray = () => eval(arr.toString().split(',').join(''));
