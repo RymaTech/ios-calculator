@@ -110,3 +110,8 @@ divide.addEventListener('click', () => {
   arr.push('/');
   str = '';
 });
+
+multiply.addEventListener('click', () => {
+  arr.push('*');
+  str = '';
+});
