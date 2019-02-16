@@ -23,6 +23,9 @@ const equals = document.getElementById('equals');
 let arr = []; // Store user clicks which will later be used to calculate
 let str = ''; // display user clicks used for display
 
+let percentageArr = []; // Array to test whether user has click percentage.
+let percentStartNum = []; // percentage number user wants to work out.
+
 const calculateArray = () => eval(arr.toString().split(',').join(''));
 
 zero.addEventListener('click', () => {
@@ -97,6 +100,7 @@ nine.addEventListener('click', () => {
 
 ac.addEventListener('click', () => {
   arr = [];
+  percentageArr = [];
   display.value = '0';
   str = '';
   ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
@@ -116,6 +120,7 @@ divide.addEventListener('click', () => {
 multiply.addEventListener('click', () => {
   arr.push('*');
   str = '';
+  percentStartNum.push(display.value);
 });
 
 minus.addEventListener('click', () => {
@@ -134,8 +139,17 @@ decimal.addEventListener('click', () => {
   display.value = str;
 });
 
+percentage.addEventListener('click', () => { // needs to be fixed
+  percentageArr.push('x');
+  let number = eval(str);
+  display.value = number * 0.01;
+});
+
 equals.addEventListener('click', () => {
-  display.value = '0';
   str = '';
-  display.value = calculateArray();
+  if (percentageArr.length === 1) {
+    display.value = eval(display.value) * percentStartNum[0];
+  } else {
+    display.value = calculateArray();
+  }
 });
