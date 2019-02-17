@@ -1,4 +1,6 @@
 /* jshint esversion: 6 */
+
+//getElementById('id')
 const display = document.getElementById('display');
 const zero = document.getElementById('zero');
 const one = document.getElementById('one');
@@ -19,12 +21,14 @@ const minus = document.getElementById('minus');
 const plus = document.getElementById('plus');
 const decimal = document.getElementById('decimal');
 const equals = document.getElementById('equals');
+
+//getElementsByClassName('className')
 const numbers = document.getElementsByClassName('numbers');
 const lightGrey = document.getElementsByClassName('lightGrey');
 const operators = document.getElementsByClassName('operators');
 
-let arr = []; // Store user clicks which will later be used to calculate
-let str = ''; // display user clicks used for display
+let arr = []; // Store user clicks which will later be used to calculate.
+let str = ''; // display user clicks used for display.
 let percentageArr = []; // Array to test whether user has click percentage.
 let percentStartNum = []; // percentage number user wants to work out.
 
@@ -97,20 +101,17 @@ const styleLightGrey = () => {
 
 styleLightGrey();
 
-const styleOperators = () => {
-  for (let i = 0; i < operators.length; i++) {
-    operators[i].addEventListener('mouseover', () => {
-      operators[i].style.color = '#FF9500';
-      operators[i].style.backgroundColor = 'white';
-    });
-    operators[i].addEventListener('mouseout', () => {
-      operators[i].style.color = 'white';
-      operators[i].style.backgroundColor = '#FF9500';
-    });
-  }
+const jsStyle = (id, bc, c) => {
+  id.style.backgroundColor = bc;
+  id.style.color = c;
 };
 
-styleOperators();
+const jsStyleReset = () => {
+  for (let i = 0; i < operators.length; i++) {
+    operators[i].style.color = 'white';
+    operators[i].style.backgroundColor = '#FF9500';
+  }
+};
 
 zero.addEventListener('click', () => {
   arr.push(0);
@@ -118,10 +119,12 @@ zero.addEventListener('click', () => {
     str = str.concat(0);
     ac.innerHTML = 'C';
     display.value = str;
+    jsStyleReset();
   }
 
   controlFontSize();
   addcommas();
+
 });
 
 one.addEventListener('click', () => {
@@ -131,6 +134,7 @@ one.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 two.addEventListener('click', () => {
@@ -140,6 +144,7 @@ two.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 three.addEventListener('click', () => {
@@ -149,6 +154,7 @@ three.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 four.addEventListener('click', () => {
@@ -158,6 +164,7 @@ four.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 five.addEventListener('click', () => {
@@ -167,6 +174,7 @@ five.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 six.addEventListener('click', () => {
@@ -176,6 +184,7 @@ six.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 seven.addEventListener('click', () => {
@@ -185,6 +194,7 @@ seven.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 eight.addEventListener('click', () => {
@@ -194,6 +204,7 @@ eight.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 nine.addEventListener('click', () => {
@@ -203,6 +214,7 @@ nine.addEventListener('click', () => {
   display.value = str;
   controlFontSize();
   addcommas();
+  jsStyleReset();
 });
 
 ac.addEventListener('click', () => {
@@ -220,21 +232,25 @@ negative.addEventListener('click', () => {
   arr.push('-');
   str = str.concat('-');
   display.value = str;
+  jsStyle(negative, 'white', '#FF9500');
 });
 
 divide.addEventListener('click', () => {
   arr.push('/');
   str = '';
+  jsStyle(divide, 'white', '#FF9500');
 });
 
 minus.addEventListener('click', () => {
   arr.push('-');
   str = '';
+  jsStyle(minus, 'white', '#FF9500');
 });
 
 plus.addEventListener('click', () => {
   arr.push('+');
   str = '';
+  jsStyle(plus, 'white', '#FF9500');
 });
 
 decimal.addEventListener('click', () => {
@@ -248,6 +264,7 @@ decimal.addEventListener('click', () => {
 multiply.addEventListener('click', () => {
   arr.push('*');
   str = '';
+  jsStyle(multiply, 'white', '#FF9500');
   percentStartNum.push(display.value);
 });
 
@@ -262,4 +279,5 @@ equals.addEventListener('click', () => {
   workoutTotal();
   controlFontSize();
   addcommas();
+  console.log(arr);
 });
