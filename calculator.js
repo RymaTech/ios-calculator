@@ -30,16 +30,16 @@ const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 const calculateArray = () => evalOnce(arr.toString().split(',').join(''));
 
 const workoutTotal = () => {
-  if (percentageArr.length === 1) {
+  if (percentageArr.length === 1) { //if === 1 then percentage button has been clicked by user.
     display.value = evalOnce(display.value) * percentStartNum[0];
   } else {
-    display.value = calculateArray();
+    display.value = calculateArray(); // if NOT 1 then calculate as normal, percentage not required.
   }
 };
 
 zero.addEventListener('click', () => {
   arr.push(0);
-  if (display.value !== '0') {
+  if (display.value !== '0') { // Avoid number begin with multiple zeros.
     str = str.concat(0);
     ac.innerHTML = 'C';
     display.value = str;
@@ -114,7 +114,9 @@ ac.addEventListener('click', () => {
   percentageArr = [];
   display.value = '0';
   str = '';
-  ac.innerHTML === 'C' ? ac.innerHTML = 'AC' : 'error';
+  if (ac.innerHTML === 'C') {
+    ac.innerHTML = 'AC';
+  }
 });
 
 negative.addEventListener('click', () => {
@@ -139,7 +141,7 @@ plus.addEventListener('click', () => {
 });
 
 decimal.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '.') {
+  if (arr[arr.length - 1] !== '.') { // Avoids two '.' in one number.
     arr.push('.');
     str = str.concat('.');
     display.value = str;
@@ -152,7 +154,7 @@ multiply.addEventListener('click', () => {
   percentStartNum.push(display.value);
 });
 
-percentage.addEventListener('click', () => { // needs to be fixed
+percentage.addEventListener('click', () => {
   percentageArr.push('x');
   let number = evalOnce(str);
   display.value = number * 0.01;
@@ -161,5 +163,4 @@ percentage.addEventListener('click', () => { // needs to be fixed
 equals.addEventListener('click', () => {
   str = '';
   workoutTotal();
-  console.log(arr);
 });
