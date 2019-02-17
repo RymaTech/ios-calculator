@@ -53,7 +53,7 @@ button {
   border: none;
 }
 
-.divide, .multiply, .equals, .plus, .minus {
+.operators {
   color: white;
   background-color: #FF9500;
 }
