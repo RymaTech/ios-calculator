@@ -29,6 +29,12 @@ const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
 const calculateArray = () => evalOnce(arr.toString().split(',').join(''));
 
+const controlFontSize = () => {
+  if (display.value.length > 9) {
+    display.style.fontSize = '3.5rem';
+  }
+};
+
 const workoutTotal = () => {
   if (percentageArr.length === 1) { //if === 1 then percentage button has been clicked by user.
     display.value = evalOnce(display.value) * percentStartNum[0];
@@ -44,6 +50,8 @@ zero.addEventListener('click', () => {
     ac.innerHTML = 'C';
     display.value = str;
   }
+
+  controlFontSize();
 });
 
 one.addEventListener('click', () => {
@@ -51,6 +59,7 @@ one.addEventListener('click', () => {
   str = str.concat(1);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 two.addEventListener('click', () => {
@@ -58,6 +67,7 @@ two.addEventListener('click', () => {
   str = str.concat(2);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 three.addEventListener('click', () => {
@@ -65,6 +75,7 @@ three.addEventListener('click', () => {
   str = str.concat(3);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 four.addEventListener('click', () => {
@@ -72,6 +83,7 @@ four.addEventListener('click', () => {
   str = str.concat(4);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 five.addEventListener('click', () => {
@@ -79,6 +91,7 @@ five.addEventListener('click', () => {
   str = str.concat(5);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 six.addEventListener('click', () => {
@@ -86,6 +99,7 @@ six.addEventListener('click', () => {
   str = str.concat(6);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 seven.addEventListener('click', () => {
@@ -93,6 +107,7 @@ seven.addEventListener('click', () => {
   str = str.concat(7);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 eight.addEventListener('click', () => {
@@ -100,6 +115,7 @@ eight.addEventListener('click', () => {
   str = str.concat(8);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 nine.addEventListener('click', () => {
@@ -107,6 +123,7 @@ nine.addEventListener('click', () => {
   str = str.concat(9);
   ac.innerHTML = 'C';
   display.value = str;
+  controlFontSize();
 });
 
 ac.addEventListener('click', () => {
@@ -163,4 +180,5 @@ percentage.addEventListener('click', () => {
 equals.addEventListener('click', () => {
   str = '';
   workoutTotal();
+  controlFontSize();
 });
