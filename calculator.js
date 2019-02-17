@@ -29,7 +29,7 @@ const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
 const calculateArray = () => evalOnce(arr.toString().split(',').join(''));
 
-const workoutPercent = () => {
+const workoutTotal = () => {
   if (percentageArr.length === 1) {
     display.value = evalOnce(display.value) * percentStartNum[0];
   } else {
@@ -126,12 +126,6 @@ divide.addEventListener('click', () => {
   str = '';
 });
 
-multiply.addEventListener('click', () => {
-  arr.push('*');
-  str = '';
-  percentStartNum.push(display.value);
-});
-
 minus.addEventListener('click', () => {
   arr.push('-');
   str = '';
@@ -143,9 +137,17 @@ plus.addEventListener('click', () => {
 });
 
 decimal.addEventListener('click', () => {
-  arr.push('.');
-  str = str.concat('.');
-  display.value = str;
+  if (arr[arr.length - 1] !== '.') {
+    arr.push('.');
+    str = str.concat('.');
+    display.value = str;
+  }
+});
+
+multiply.addEventListener('click', () => {
+  arr.push('*');
+  str = '';
+  percentStartNum.push(display.value);
 });
 
 percentage.addEventListener('click', () => { // needs to be fixed
@@ -156,5 +158,6 @@ percentage.addEventListener('click', () => { // needs to be fixed
 
 equals.addEventListener('click', () => {
   str = '';
-  workoutPercent();
+  workoutTotal();
+  console.log(arr);
 });
