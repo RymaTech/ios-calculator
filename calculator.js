@@ -21,7 +21,7 @@ const decimal = document.getElementById('decimal');
 const equals = document.getElementById('equals');
 
 let arr = []; // Store user clicks which will later be used to calculate
-let str = ''; // display user clicks used for display
+let str = '0'; // display user clicks used for display
 let percentageArr = []; // Array to test whether user has click percentage.
 let percentStartNum = []; // percentage number user wants to work out.
 
@@ -39,9 +39,11 @@ const workoutTotal = () => {
 
 zero.addEventListener('click', () => {
   arr.push(0);
-  str = str.concat(0);
-  ac.innerHTML = 'C';
-  display.value = str;
+  if (display.value !== '0') {
+    str = str.concat(0);
+    ac.innerHTML = 'C';
+    display.value = str;
+  }
 });
 
 one.addEventListener('click', () => {
