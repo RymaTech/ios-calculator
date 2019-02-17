@@ -130,6 +130,7 @@ ac.addEventListener('click', () => {
   arr = [];
   percentageArr = [];
   display.value = '0';
+  display.style.fontSize = '7rem';
   str = '';
   if (ac.innerHTML === 'C') {
     ac.innerHTML = 'AC';
