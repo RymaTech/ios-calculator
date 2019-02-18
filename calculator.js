@@ -277,6 +277,5 @@ equals.addEventListener('click', () => { // need to fix
   str = '';
   workoutTotal();
   controlFontSize();
-  addCommasToNums(str);
   console.log(arr);
 });
