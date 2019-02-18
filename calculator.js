@@ -34,12 +34,12 @@ let percentStartNum = []; // percentage number user wants to work out.
 
 const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
+const addCommasToNums = (variable) => variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 const calculateArray = () => {
   let calculation = evalOnce(arr.toString().split(',').join(''));
-  return calculation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return addCommasToNums(calculation);
 };
-
-const addcommas = () => str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const controlFontSize = () => {
   if (display.value.length > 9) {
@@ -112,7 +112,7 @@ zero.addEventListener('click', () => {
   if (display.value !== '0') { // Avoid number begin with multiple zeros.
     str = str.concat(0);
     ac.innerHTML = 'C';
-    display.value = addcommas();
+    display.value = addCommasToNums(str);
     jsStyleReset();
   }
 
@@ -129,9 +129,9 @@ one.addEventListener('click', () => {
 
   str = str.concat(1);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -139,9 +139,9 @@ two.addEventListener('click', () => {
   arr.push(2);
   str = str.concat(2);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -149,9 +149,9 @@ three.addEventListener('click', () => {
   arr.push(3);
   str = str.concat(3);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -159,9 +159,9 @@ four.addEventListener('click', () => {
   arr.push(4);
   str = str.concat(4);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -169,9 +169,9 @@ five.addEventListener('click', () => {
   arr.push(5);
   str = str.concat(5);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -179,9 +179,9 @@ six.addEventListener('click', () => {
   arr.push(6);
   str = str.concat(6);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -189,9 +189,9 @@ seven.addEventListener('click', () => {
   arr.push(7);
   str = str.concat(7);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -199,9 +199,9 @@ eight.addEventListener('click', () => {
   arr.push(8);
   str = str.concat(8);
   ac.innerHTML = 'C';
-  display.value = addcommas();
+  display.value = addCommasToNums(str);
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -211,7 +211,7 @@ nine.addEventListener('click', () => {
   ac.innerHTML = 'C';
   display.value = str;
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   jsStyleReset();
 });
 
@@ -277,6 +277,6 @@ equals.addEventListener('click', () => { // need to fix
   str = '';
   workoutTotal();
   controlFontSize();
-  addcommas();
+  addCommasToNums(str);
   console.log(arr);
 });
