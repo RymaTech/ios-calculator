@@ -34,7 +34,10 @@ let percentStartNum = []; // percentage number user wants to work out.
 
 const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
-const calculateArray = () => evalOnce(arr.toString().split(',').join(''));
+const calculateArray = () => {
+  let calculation = evalOnce(arr.toString().split(',').join(''));
+  return calculation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
 
 const addcommas = () => str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
@@ -114,8 +117,6 @@ zero.addEventListener('click', () => {
   }
 
   controlFontSize();
-
-
 });
 
 one.addEventListener('click', () => {
