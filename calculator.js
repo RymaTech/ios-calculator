@@ -45,7 +45,7 @@ const calculateArray = () => {
 
 const controlFontSize = () => {
   if (display.value.length > 9) {
-    display.style.fontSize = '4rem';
+    display.style.fontSize = '6rem';
   }
 };
 
@@ -122,13 +122,7 @@ zero.addEventListener('click', () => {
 });
 
 one.addEventListener('click', () => {
-  if (display.value.length < 11) {
-    arr.push(1);
-  } else {
-    alert('Nine digits only.');
-    arr.toString().split('').pop().join('');
-  }
-
+  arr.push(1);
   str = str.concat(1);
   ac.innerHTML = 'C';
   display.value = addCommasToNums(str);
@@ -235,7 +229,7 @@ negative.addEventListener('click', () => {
 });
 
 divide.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '/') {
+  if (arr[arr.length - 1] !== '/') { // Avoids two '/' beside eachother.
     arr.push('/');
     str = '';
     jsStyle(divide, 'white', '#FF9500');
@@ -243,7 +237,7 @@ divide.addEventListener('click', () => {
 });
 
 minus.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '-') {
+  if (arr[arr.length - 1] !== '-') { // Avoids two '-' beside eachother.
     arr.push('-');
     str = '';
     jsStyle(minus, 'white', '#FF9500');
@@ -252,7 +246,7 @@ minus.addEventListener('click', () => {
 });
 
 plus.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '+') {
+  if (arr[arr.length - 1] !== '+') { // Avoids two '+' beside eachother.
     arr.push('+');
     str = '';
     jsStyle(plus, 'white', '#FF9500');
@@ -261,7 +255,7 @@ plus.addEventListener('click', () => {
 });
 
 decimal.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '.') { // Avoids two '.' in one number.
+  if (arr[arr.length - 1] !== '.') { // Avoids two '.' beside eachother.
     arr.push('.');
     str = str.concat('.');
     display.value = str;
@@ -269,7 +263,7 @@ decimal.addEventListener('click', () => {
 });
 
 multiply.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '*') {
+  if (arr[arr.length - 1] !== '*') { // Avoids two '*' beside eachother.
     arr.push('*');
     str = '';
     jsStyle(multiply, 'white', '#FF9500');
@@ -287,9 +281,9 @@ equals.addEventListener('click', () => {
   str = '';
   workoutTotal();
   controlFontSize();
-  console.log(arr);
+  console.log(arr); //for testing.
   arr = [];
-  console.log(arr);
+  console.log(arr); //for testing.
   console.log(storeLastResult); //for testing.
   arr[0] = storeLastResult[storeLastResult.length - 1];
 });
