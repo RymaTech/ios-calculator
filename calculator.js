@@ -109,25 +109,6 @@ const jsStyleReset = () => {
   }
 };
 
-// const getLastNumber = arr2 => {
-//   arr2 = arr;
-//   console.log(arr2);
-//   let reverseArray = arr2.toString().split(',').reverse().join('').split('');
-//   let lastOpOnwards = [];
-//
-//   for (let i = 0; i < reverseArray.length; i++) {
-//     lastOpOnwards.push(reverseArray[i]);
-//     if (reverseArray[i] === '+' || reverseArray[i] === '-' || reverseArray[i] === '/' || reverseArray[i] === '*') {
-//       break;
-//     }
-//   }
-//
-//   lastOpOnwards.pop();
-//   let result = parseInt(lastOpOnwards.reverse().join(''));
-//
-//   storeLastResult.push(result);
-// };
-
 zero.addEventListener('click', () => {
   arr.push(0);
   if (display.value !== '0') { // Avoid number begin with multiple zeros.
@@ -250,8 +231,6 @@ ac.addEventListener('click', () => {
 negative.addEventListener('click', () => {
   arr.push('-');
   str = str.concat('-');
-
-  // display.value = str;
   jsStyle(negative, 'white', '#FF9500');
 });
 
@@ -294,12 +273,12 @@ percentage.addEventListener('click', () => {
   display.value = number * 0.01;
 });
 
-equals.addEventListener('click', () => { // need to fix
+equals.addEventListener('click', () => {
   str = '';
   workoutTotal();
   controlFontSize();
   arr = [];
-  console.log(storeLastResult);
+  console.log(storeLastResult); //for testing.
   arr[0] = storeLastResult[storeLastResult.length - 1];
 });
-console.log(arr);
+console.log(arr); //for testing.
