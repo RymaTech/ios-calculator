@@ -235,21 +235,29 @@ negative.addEventListener('click', () => {
 });
 
 divide.addEventListener('click', () => {
-  arr.push('/');
-  str = '';
-  jsStyle(divide, 'white', '#FF9500');
+  if (arr[arr.length - 1] !== '/') {
+    arr.push('/');
+    str = '';
+    jsStyle(divide, 'white', '#FF9500');
+  }
 });
 
 minus.addEventListener('click', () => {
-  arr.push('-');
-  str = '';
-  jsStyle(minus, 'white', '#FF9500');
+  if (arr[arr.length - 1] !== '-') {
+    arr.push('-');
+    str = '';
+    jsStyle(minus, 'white', '#FF9500');
+  }
+
 });
 
 plus.addEventListener('click', () => {
-  arr.push('+');
-  str = '';
-  jsStyle(plus, 'white', '#FF9500');
+  if (arr[arr.length - 1] !== '+') {
+    arr.push('+');
+    str = '';
+    jsStyle(plus, 'white', '#FF9500');
+  }
+
 });
 
 decimal.addEventListener('click', () => {
@@ -261,10 +269,12 @@ decimal.addEventListener('click', () => {
 });
 
 multiply.addEventListener('click', () => {
-  arr.push('*');
-  str = '';
-  jsStyle(multiply, 'white', '#FF9500');
-  percentStartNum.push(display.value);
+  if (arr[arr.length - 1] !== '*') {
+    arr.push('*');
+    str = '';
+    jsStyle(multiply, 'white', '#FF9500');
+    percentStartNum.push(display.value);
+  }
 });
 
 percentage.addEventListener('click', () => {
@@ -277,7 +287,9 @@ equals.addEventListener('click', () => {
   str = '';
   workoutTotal();
   controlFontSize();
+  console.log(arr);
   arr = [];
+  console.log(arr);
   console.log(storeLastResult); //for testing.
   arr[0] = storeLastResult[storeLastResult.length - 1];
 });
