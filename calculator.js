@@ -31,6 +31,7 @@ let arr = []; // Store user clicks which will later be used to calculate.
 let str = ''; // display user clicks used for display.
 let percentageArr = []; // Array to test whether user has click percentage.
 let percentStartNum = []; // percentage number user wants to work out.
+let storeLastResult = []; // the number which appears after equals has been clicked.
 
 const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
@@ -38,12 +39,13 @@ const addCommasToNums = (variable) => variable.toString().replace(/\B(?=(\d{3})+
 
 const calculateArray = () => {
   let calculation = evalOnce(arr.toString().split(',').join(''));
+  storeLastResult.push(calculation);
   return addCommasToNums(calculation);
 };
 
 const controlFontSize = () => {
   if (display.value.length > 9) {
-    display.style.fontSize = '3.5rem';
+    display.style.fontSize = '4rem';
   }
 };
 
@@ -107,6 +109,25 @@ const jsStyleReset = () => {
   }
 };
 
+// const getLastNumber = arr2 => {
+//   arr2 = arr;
+//   console.log(arr2);
+//   let reverseArray = arr2.toString().split(',').reverse().join('').split('');
+//   let lastOpOnwards = [];
+//
+//   for (let i = 0; i < reverseArray.length; i++) {
+//     lastOpOnwards.push(reverseArray[i]);
+//     if (reverseArray[i] === '+' || reverseArray[i] === '-' || reverseArray[i] === '/' || reverseArray[i] === '*') {
+//       break;
+//     }
+//   }
+//
+//   lastOpOnwards.pop();
+//   let result = parseInt(lastOpOnwards.reverse().join(''));
+//
+//   storeLastResult.push(result);
+// };
+
 zero.addEventListener('click', () => {
   arr.push(0);
   if (display.value !== '0') { // Avoid number begin with multiple zeros.
@@ -120,7 +141,7 @@ zero.addEventListener('click', () => {
 });
 
 one.addEventListener('click', () => {
-  if (display.value.length < 9) {
+  if (display.value.length < 11) {
     arr.push(1);
   } else {
     alert('Nine digits only.');
@@ -277,5 +298,8 @@ equals.addEventListener('click', () => { // need to fix
   str = '';
   workoutTotal();
   controlFontSize();
-  console.log(arr);
+  arr = [];
+  console.log(storeLastResult);
+  arr[0] = storeLastResult[storeLastResult.length - 1];
 });
+console.log(arr);
