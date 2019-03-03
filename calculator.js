@@ -35,15 +35,8 @@ let storeLastResult = []; // the number which appears after equals has been clic
 
 const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
-const addCommasToNums = variable => variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-// const addCommasToNums = variable => {
-//   for (let i = 0; i < arr.length; i++) {
-//     if(arr[i] !== '.') {
-//       variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//     }
-//   }
-// };
+const addCommasToNums = variable =>
+  variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 const calculateArray = () => {
   let calculation = evalOnce(
@@ -85,12 +78,12 @@ const styleNumbers = () => {
 styleNumbers();
 
 const styleZero = () => {
-    zero.addEventListener("mouseover", () => {
-      zero.style.backgroundColor = "#6a6a6a";
-    });
-    zero.addEventListener("mouseout", () => {
-      zero.style.backgroundColor = "#505050";
-    });
+  zero.addEventListener("mouseover", () => {
+    zero.style.backgroundColor = "#6a6a6a";
+  });
+  zero.addEventListener("mouseout", () => {
+    zero.style.backgroundColor = "#505050";
+  });
 };
 
 styleZero();
@@ -146,7 +139,7 @@ zero.addEventListener("click", () => {
 
 const buttonNumbers = () => {
   const numbersArr = [zero, one, two, three, four, five, six, seven, eight, nine];
-  for(let i = 1; i < numbersArr.length; i++) {
+  for (let i = 1; i < numbersArr.length; i++) {
     numbersArr[i].addEventListener("click", () => {
       reduceNumberCode(i, i);
     });
