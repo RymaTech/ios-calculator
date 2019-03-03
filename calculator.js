@@ -116,7 +116,7 @@ const jsStyleReset = () => {
   }
 };
 
-function reduceNumberCode(num1, num2) {
+const reduceNumberCode = (num1, num2) => {
   arr.push(num1);
   str = str.concat(num2);
   ac.innerHTML = "C";
@@ -124,7 +124,7 @@ function reduceNumberCode(num1, num2) {
   controlFontSize();
   addCommasToNums(str);
   jsStyleReset();
-}
+};
 
 zero.addEventListener("click", () => {
   arr.push(0);
@@ -139,41 +139,15 @@ zero.addEventListener("click", () => {
   controlFontSize();
 });
 
-one.addEventListener("click", () => {
-  reduceNumberCode(1, 1);
-});
-
-two.addEventListener("click", () => {
-  reduceNumberCode(2, 2);
-});
-
-three.addEventListener("click", () => {
-  reduceNumberCode(3, 3);
-});
-
-four.addEventListener("click", () => {
-  reduceNumberCode(4, 4);
-});
-
-five.addEventListener("click", () => {
-  reduceNumberCode(5, 5);
-});
-
-six.addEventListener("click", () => {
-  reduceNumberCode(6, 6);
-});
-
-seven.addEventListener("click", () => {
-  reduceNumberCode(7, 7);
-});
-
-eight.addEventListener("click", () => {
-  reduceNumberCode(8, 8);
-});
-
-nine.addEventListener("click", () => {
-  reduceNumberCode(9, 9);
-});
+const buttonNumbers = () => {
+  const numbersArr = [zero, one, two, three, four, five, six, seven, eight, nine];
+  for(let i = 0; i < numbersArr.length; i++) {
+    numbersArr[i].addEventListener("click", () => {
+      reduceNumberCode(i, i);
+    });
+  }
+};
+buttonNumbers();
 
 ac.addEventListener("click", () => {
   arr = [];
