@@ -163,31 +163,29 @@ negative.addEventListener("click", () => {
   jsStyle(negative, "white", "#FF9500");
 });
 
-divide.addEventListener("click", () => {
-  if (arr[arr.length - 1] !== "/") {
-    // Avoids two '/' beside eachother.
-    arr.push("/");
+const reduceOps = (op, opName) => {
+  if (arr[arr.length - 1] !== op) {
+    // Avoids two operators beside eachother.
+    arr.push(op);
     str = "";
-    jsStyle(divide, "white", "#FF9500");
+    jsStyle(opName, "white", "#FF9500");
   }
+};
+
+divide.addEventListener("click", () => {
+  reduceOps("/", divide);
 });
 
 minus.addEventListener("click", () => {
-  if (arr[arr.length - 1] !== "-") {
-    // Avoids two '-' beside eachother.
-    arr.push("-");
-    str = "";
-    jsStyle(minus, "white", "#FF9500");
-  }
+  reduceOps("-", minus);
 });
 
 plus.addEventListener("click", () => {
-  if (arr[arr.length - 1] !== "+") {
-    // Avoids two '+' beside eachother.
-    arr.push("+");
-    str = "";
-    jsStyle(plus, "white", "#FF9500");
-  }
+  reduceOps("+", plus);
+});
+
+multiply.addEventListener("click", () => {
+  reduceOps("*", multiply);
 });
 
 decimal.addEventListener("click", () => {
@@ -196,16 +194,6 @@ decimal.addEventListener("click", () => {
     arr.push(".");
     str = str.concat(".");
     display.value = str;
-  }
-});
-
-multiply.addEventListener("click", () => {
-  if (arr[arr.length - 1] !== "*") {
-    // Avoids two '*' beside eachother.
-    arr.push("*");
-    str = "";
-    jsStyle(multiply, "white", "#FF9500");
-    percentStartNum.push(display.value);
   }
 });
 
