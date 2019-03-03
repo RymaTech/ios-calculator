@@ -77,7 +77,6 @@ const styleNumbers = () => {
 styleNumbers();
 
 const styleZero = () => {
-  //for loop may not be neccessary
     zero.addEventListener("mouseover", () => {
       zero.style.backgroundColor = "#6a6a6a";
     });
