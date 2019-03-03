@@ -37,6 +37,14 @@ const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
 const addCommasToNums = variable => variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+// const addCommasToNums = variable => {
+//   for (let i = 0; i < arr.length; i++) {
+//     if(arr[i] !== '.') {
+//       variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//     }
+//   }
+// };
+
 const calculateArray = () => {
   let calculation = evalOnce(
     arr
@@ -138,7 +146,7 @@ zero.addEventListener("click", () => {
 
 const buttonNumbers = () => {
   const numbersArr = [zero, one, two, three, four, five, six, seven, eight, nine];
-  for(let i = 0; i < numbersArr.length; i++) {
+  for(let i = 1; i < numbersArr.length; i++) {
     numbersArr[i].addEventListener("click", () => {
       reduceNumberCode(i, i);
     });
