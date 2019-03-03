@@ -78,14 +78,12 @@ styleNumbers();
 
 const styleZero = () => {
   //for loop may not be neccessary
-  for (let i = 0; i < numbers.length; i++) {
     zero.addEventListener("mouseover", () => {
       zero.style.backgroundColor = "#6a6a6a";
     });
     zero.addEventListener("mouseout", () => {
       zero.style.backgroundColor = "#505050";
     });
-  }
 };
 
 styleZero();
