@@ -1,56 +1,62 @@
 /* jshint esversion: 6 */
 
 //getElementById('id')
-const display = document.getElementById('display');
-const zero = document.getElementById('zero');
-const one = document.getElementById('one');
-const two = document.getElementById('two');
-const three = document.getElementById('three');
-const four = document.getElementById('four');
-const five = document.getElementById('five');
-const six = document.getElementById('six');
-const seven = document.getElementById('seven');
-const eight = document.getElementById('eight');
-const nine = document.getElementById('nine');
-const ac = document.getElementById('ac');
-const negative = document.getElementById('negative');
-const percentage = document.getElementById('percentage');
-const divide = document.getElementById('divide');
-const multiply = document.getElementById('multiply');
-const minus = document.getElementById('minus');
-const plus = document.getElementById('plus');
-const decimal = document.getElementById('decimal');
-const equals = document.getElementById('equals');
+const display = document.getElementById("display");
+const zero = document.getElementById("zero");
+const one = document.getElementById("one");
+const two = document.getElementById("two");
+const three = document.getElementById("three");
+const four = document.getElementById("four");
+const five = document.getElementById("five");
+const six = document.getElementById("six");
+const seven = document.getElementById("seven");
+const eight = document.getElementById("eight");
+const nine = document.getElementById("nine");
+const ac = document.getElementById("ac");
+const negative = document.getElementById("negative");
+const percentage = document.getElementById("percentage");
+const divide = document.getElementById("divide");
+const multiply = document.getElementById("multiply");
+const minus = document.getElementById("minus");
+const plus = document.getElementById("plus");
+const decimal = document.getElementById("decimal");
+const equals = document.getElementById("equals");
 
 //getElementsByClassName('className')
-const numbers = document.getElementsByClassName('numbers');
-const lightGrey = document.getElementsByClassName('lightGrey');
-const operators = document.getElementsByClassName('operators');
+const numbers = document.getElementsByClassName("numbers");
+const lightGrey = document.getElementsByClassName("lightGrey");
+const operators = document.getElementsByClassName("operators");
 
 let arr = []; // Store user clicks which will later be used to calculate.
-let str = ''; // display user clicks used for display.
+let str = ""; // display user clicks used for display.
 let percentageArr = []; // Array to test whether user has click percentage.
 let percentStartNum = []; // percentage number user wants to work out.
 let storeLastResult = []; // the number which appears after equals has been clicked.
 
 const evalOnce = input => eval(input); //Using eval to turn strings to numbers.
 
-const addCommasToNums = (variable) => variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const addCommasToNums = variable => variable.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 const calculateArray = () => {
-  let calculation = evalOnce(arr.toString().split(',').join(''));
+  let calculation = evalOnce(
+    arr
+      .toString()
+      .split(",")
+      .join("")
+  );
   storeLastResult.push(calculation);
   return addCommasToNums(calculation);
 };
 
 const controlFontSize = () => {
   if (display.value.length > 9) {
-    display.style.fontSize = '6rem';
+    display.style.fontSize = "6rem";
   }
 };
 
 const workoutTotal = () => {
-  if (percentageArr.length === 1) { //if === 1 then percentage button has been clicked by user.
+  if (percentageArr.length === 1) {
+    //if === 1 then percentage button has been clicked by user.
     display.value = evalOnce(display.value) * percentStartNum[0];
   } else {
     display.value = calculateArray(); // if NOT 1 then calculate as normal, percentage not required.
@@ -59,11 +65,11 @@ const workoutTotal = () => {
 
 const styleNumbers = () => {
   for (let i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener('mouseover', () => {
-      numbers[i].style.backgroundColor = '#6a6a6a';
+    numbers[i].addEventListener("mouseover", () => {
+      numbers[i].style.backgroundColor = "#6a6a6a";
     });
-    numbers[i].addEventListener('mouseout', () => {
-      numbers[i].style.backgroundColor = '#505050';
+    numbers[i].addEventListener("mouseout", () => {
+      numbers[i].style.backgroundColor = "#505050";
     });
   }
 };
@@ -71,12 +77,13 @@ const styleNumbers = () => {
 styleNumbers();
 
 const styleZero = () => {
+  //for loop may not be neccessary
   for (let i = 0; i < numbers.length; i++) {
-    zero.addEventListener('mouseover', () => {
-      zero.style.backgroundColor = '#6a6a6a';
+    zero.addEventListener("mouseover", () => {
+      zero.style.backgroundColor = "#6a6a6a";
     });
-    zero.addEventListener('mouseout', () => {
-      zero.style.backgroundColor = '#505050';
+    zero.addEventListener("mouseout", () => {
+      zero.style.backgroundColor = "#505050";
     });
   }
 };
@@ -85,12 +92,12 @@ styleZero();
 
 const styleLightGrey = () => {
   for (let i = 0; i < lightGrey.length; i++) {
-    lightGrey[i].addEventListener('mouseover', () => {
-      lightGrey[i].style.backgroundColor = '#eaeaea';
+    lightGrey[i].addEventListener("mouseover", () => {
+      lightGrey[i].style.backgroundColor = "#eaeaea";
     });
-    lightGrey[i].addEventListener('mouseout', () => {
-      lightGrey[i].style.color = '#1C1C1C';
-      lightGrey[i].style.backgroundColor = '#D4D4D2';
+    lightGrey[i].addEventListener("mouseout", () => {
+      lightGrey[i].style.color = "#1C1C1C";
+      lightGrey[i].style.backgroundColor = "#D4D4D2";
     });
   }
 };
@@ -104,16 +111,27 @@ const jsStyle = (id, bc, c) => {
 
 const jsStyleReset = () => {
   for (let i = 0; i < operators.length; i++) {
-    operators[i].style.color = 'white';
-    operators[i].style.backgroundColor = '#FF9500';
+    operators[i].style.color = "white";
+    operators[i].style.backgroundColor = "#FF9500";
   }
 };
 
-zero.addEventListener('click', () => {
+function reduceNumberCode(num1, num2) {
+  arr.push(num1);
+  str = str.concat(num2);
+  ac.innerHTML = "C";
+  display.value = addCommasToNums(str);
+  controlFontSize();
+  addCommasToNums(str);
+  jsStyleReset();
+}
+
+zero.addEventListener("click", () => {
   arr.push(0);
-  if (display.value !== '0') { // Avoid number begin with multiple zeros.
+  if (display.value !== "0") {
+    // Avoid number begin with multiple zeros.
     str = str.concat(0);
-    ac.innerHTML = 'C';
+    ac.innerHTML = "C";
     display.value = addCommasToNums(str);
     jsStyleReset();
   }
@@ -121,164 +139,113 @@ zero.addEventListener('click', () => {
   controlFontSize();
 });
 
-one.addEventListener('click', () => {
-  arr.push(1);
-  str = str.concat(1);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+one.addEventListener("click", () => {
+  reduceNumberCode(1, 1);
 });
 
-two.addEventListener('click', () => {
-  arr.push(2);
-  str = str.concat(2);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+two.addEventListener("click", () => {
+  reduceNumberCode(2, 2);
 });
 
-three.addEventListener('click', () => {
-  arr.push(3);
-  str = str.concat(3);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+three.addEventListener("click", () => {
+  reduceNumberCode(3, 3);
 });
 
-four.addEventListener('click', () => {
-  arr.push(4);
-  str = str.concat(4);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+four.addEventListener("click", () => {
+  reduceNumberCode(4, 4);
 });
 
-five.addEventListener('click', () => {
-  arr.push(5);
-  str = str.concat(5);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+five.addEventListener("click", () => {
+  reduceNumberCode(5, 5);
 });
 
-six.addEventListener('click', () => {
-  arr.push(6);
-  str = str.concat(6);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+six.addEventListener("click", () => {
+  reduceNumberCode(6, 6);
 });
 
-seven.addEventListener('click', () => {
-  arr.push(7);
-  str = str.concat(7);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+seven.addEventListener("click", () => {
+  reduceNumberCode(7, 7);
 });
 
-eight.addEventListener('click', () => {
-  arr.push(8);
-  str = str.concat(8);
-  ac.innerHTML = 'C';
-  display.value = addCommasToNums(str);
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+eight.addEventListener("click", () => {
+  reduceNumberCode(8, 8);
 });
 
-nine.addEventListener('click', () => {
-  arr.push(9);
-  str = str.concat(9);
-  ac.innerHTML = 'C';
-  display.value = str;
-  controlFontSize();
-  addCommasToNums(str);
-  jsStyleReset();
+nine.addEventListener("click", () => {
+  reduceNumberCode(9, 9);
 });
 
-ac.addEventListener('click', () => {
+ac.addEventListener("click", () => {
   arr = [];
   percentageArr = [];
-  display.value = '0';
-  display.style.fontSize = '7rem';
-  str = '';
-  if (ac.innerHTML === 'C') {
-    ac.innerHTML = 'AC';
+  display.value = "0";
+  display.style.fontSize = "7rem";
+  str = "";
+  if (ac.innerHTML === "C") {
+    ac.innerHTML = "AC";
   }
 });
 
-negative.addEventListener('click', () => {
-  arr.push('-');
-  str = str.concat('-');
-  jsStyle(negative, 'white', '#FF9500');
+negative.addEventListener("click", () => {
+  arr.push("-");
+  str = str.concat("-");
+  jsStyle(negative, "white", "#FF9500");
 });
 
-divide.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '/') { // Avoids two '/' beside eachother.
-    arr.push('/');
-    str = '';
-    jsStyle(divide, 'white', '#FF9500');
+divide.addEventListener("click", () => {
+  if (arr[arr.length - 1] !== "/") {
+    // Avoids two '/' beside eachother.
+    arr.push("/");
+    str = "";
+    jsStyle(divide, "white", "#FF9500");
   }
 });
 
-minus.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '-') { // Avoids two '-' beside eachother.
-    arr.push('-');
-    str = '';
-    jsStyle(minus, 'white', '#FF9500');
+minus.addEventListener("click", () => {
+  if (arr[arr.length - 1] !== "-") {
+    // Avoids two '-' beside eachother.
+    arr.push("-");
+    str = "";
+    jsStyle(minus, "white", "#FF9500");
   }
-
 });
 
-plus.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '+') { // Avoids two '+' beside eachother.
-    arr.push('+');
-    str = '';
-    jsStyle(plus, 'white', '#FF9500');
+plus.addEventListener("click", () => {
+  if (arr[arr.length - 1] !== "+") {
+    // Avoids two '+' beside eachother.
+    arr.push("+");
+    str = "";
+    jsStyle(plus, "white", "#FF9500");
   }
-
 });
 
-decimal.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '.') { // Avoids two '.' beside eachother.
-    arr.push('.');
-    str = str.concat('.');
+decimal.addEventListener("click", () => {
+  if (arr[arr.length - 1] !== ".") {
+    // Avoids two '.' beside eachother.
+    arr.push(".");
+    str = str.concat(".");
     display.value = str;
   }
 });
 
-multiply.addEventListener('click', () => {
-  if (arr[arr.length - 1] !== '*') { // Avoids two '*' beside eachother.
-    arr.push('*');
-    str = '';
-    jsStyle(multiply, 'white', '#FF9500');
+multiply.addEventListener("click", () => {
+  if (arr[arr.length - 1] !== "*") {
+    // Avoids two '*' beside eachother.
+    arr.push("*");
+    str = "";
+    jsStyle(multiply, "white", "#FF9500");
     percentStartNum.push(display.value);
   }
 });
 
-percentage.addEventListener('click', () => {
-  percentageArr.push('x');
+percentage.addEventListener("click", () => {
+  percentageArr.push("x");
   let number = evalOnce(str);
   display.value = number * 0.01;
 });
 
-equals.addEventListener('click', () => {
-  str = '';
+equals.addEventListener("click", () => {
+  str = "";
   workoutTotal();
   controlFontSize();
   console.log(arr); //for testing.
