@@ -193,7 +193,7 @@ decimal.addEventListener("click", () => {
   if (arr[arr.length - 1] !== ".") {
     // Avoids two '.' beside eachother.
     arr.push(".");
-    str = str.concat(".);
+    str = str.concat(".");
     display.value = str;
   }
 });
